@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IPPhoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CallPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumberHeader" Type="int" />
+          <Property Name="Minute" Type="int" />
+          <Property Name="Block6" Type="int" />
+          <Property Name="Second" Type="int" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Area" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="CallRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CallingPartyNumber" Type="int" />
+          <Property Name="AuthCodeDescription" Type="nvarchar" MaxLength="250" />
+          <Property Name="FinalCalledPartyNumber" Type="nvarchar" MaxLength="250" />
+          <Property Name="DateTimeConnect" Type="int" />
+          <Property Name="DataTimeDisconnect" Type="int" />
+          <Property Name="FinalCalledPartyNumberPartition" Type="nvarchar(max)" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="Charge" Type="int" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="DirectoryNumber" Type="int" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="250" />
+          <Property Name="Department" Type="nvarchar" MaxLength="250" />
+          <Property Name="Company" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ChargeLevel">
+          <Key>
+            <PropertyRef Name="Level" />
+          </Key>
+          <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="Charge" Type="int" />
+        </EntityType>
+        <EntityType Name="CompanyReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="250" />
+          <Property Name="TotalDuration" Type="int" />
+          <Property Name="TotalCharge" Type="int" />
+          <Property Name="MobileDuration" Type="int" />
+          <Property Name="MobileCharge" Type="int" />
+          <Property Name="LongDuration" Type="int" />
+          <Property Name="LongCharge" Type="int" />
+          <Property Name="LocalDuration" Type="int" />
+          <Property Name="LocalCharge" Type="int" />
+          <Property Name="ServiceDuration" Type="int" Nullable="false" />
+          <Property Name="ServiceCharge" Type="int" />
+          <Property Name="InterDuration" Type="int" />
+          <Property Name="InterCharge" Type="int" />
+          <Property Name="Month" Type="tinyint" />
+          <Property Name="Year" Type="tinyint" />
+          <Property Name="RealCharge" Type="int" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DirectoryNumber" Type="nvarchar" MaxLength="250" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="250" />
+          <Property Name="Department" Type="nvarchar" MaxLength="250" />
+          <Property Name="Company" Type="nvarchar" MaxLength="250" />
+          <Property Name="Level" Type="int" />
+        </EntityType>
+        <EntityType Name="DepartmentReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="250" />
+          <Property Name="Company" Type="nvarchar" MaxLength="250" />
+          <Property Name="TotalDuration" Type="int" />
+          <Property Name="TotalCharge" Type="int" />
+          <Property Name="MobileDuration" Type="int" />
+          <Property Name="MobileCharge" Type="int" />
+          <Property Name="LongDuration" Type="int" />
+          <Property Name="LongCharge" Type="int" />
+          <Property Name="LocalDuration" Type="int" />
+          <Property Name="LocalCharge" Type="int" />
+          <Property Name="ServiceDuration" Type="int" />
+          <Property Name="ServiceCharge" Type="int" />
+          <Property Name="InterDuration" Type="int" />
+          <Property Name="InterCharge" Type="int" />
+          <Property Name="Month" Type="tinyint" />
+          <Property Name="Year" Type="tinyint" />
+          <Property Name="RealCharge" Type="int" />
+        </EntityType>
+        <EntityType Name="Operation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Method" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Type" Type="bit" />
+        </EntityType>
+        <EntityType Name="PersonReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DirectoryNumber" Type="int" />
+          <Property Name="Person" Type="nvarchar" MaxLength="250" />
+          <Property Name="Department" Type="nvarchar" MaxLength="250" />
+          <Property Name="Company" Type="nvarchar" MaxLength="250" />
+          <Property Name="TotalDuration" Type="int" />
+          <Property Name="TotalCharge" Type="int" />
+          <Property Name="MobileDuration" Type="int" />
+          <Property Name="MobileCharge" Type="int" />
+          <Property Name="LongDuration" Type="int" />
+          <Property Name="LongCharge" Type="int" />
+          <Property Name="LocalDuration" Type="int" />
+          <Property Name="LocalCharge" Type="int" />
+          <Property Name="ServiceDuration" Type="int" />
+          <Property Name="ServiceCharge" Type="int" />
+          <Property Name="InterDuration" Type="int" />
+          <Property Name="InterCharge" Type="int" />
+          <Property Name="Month" Type="tinyint" />
+          <Property Name="Year" Type="tinyint" />
+          <Property Name="RealCharge" Type="int" />
+        </EntityType>
+        <EntityType Name="Principal">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="OperationId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="OperationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserToken">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Token" Type="nvarchar(max)" />
+          <Property Name="ExpiredTime" Type="date" />
+        </EntityType>
+        <Association Name="FK_Principal_Operation">
+          <End Role="Operation" Type="Self.Operation" Multiplicity="1" />
+          <End Role="Principal" Type="Self.Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="OperationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Principal_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Principal" Type="Self.Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Role1">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IPPhoneModelStoreContainer">
+          <EntitySet Name="CallPrice" EntityType="Self.CallPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CallRecord" EntityType="Self.CallRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChargeLevel" EntityType="Self.ChargeLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyReport" EntityType="Self.CompanyReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartmentReport" EntityType="Self.DepartmentReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Operation" EntityType="Self.Operation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonReport" EntityType="Self.PersonReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Principal" EntityType="Self.Principal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserToken" EntityType="Self.UserToken" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Principal_Operation" Association="Self.FK_Principal_Operation">
+            <End Role="Operation" EntitySet="Operation" />
+            <End Role="Principal" EntitySet="Principal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Principal_Role" Association="Self.FK_Principal_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Principal" EntitySet="Principal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Role1" Association="Self.FK_UserRole_Role1">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IPPhoneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CallPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumberHeader" Type="Int32" />
+          <Property Name="Minute" Type="Int32" />
+          <Property Name="Block6" Type="Int32" />
+          <Property Name="Second" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Area" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CallRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CallingPartyNumber" Type="Int32" />
+          <Property Name="AuthCodeDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FinalCalledPartyNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DateTimeConnect" Type="Int32" />
+          <Property Name="DataTimeDisconnect" Type="Int32" />
+          <Property Name="FinalCalledPartyNumberPartition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="Charge" Type="Int32" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="DirectoryNumber" Type="Int32" />
+          <Property Name="Owner" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChargeLevel">
+          <Key>
+            <PropertyRef Name="Level" />
+          </Key>
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="Charge" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CompanyReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TotalDuration" Type="Int32" />
+          <Property Name="TotalCharge" Type="Int32" />
+          <Property Name="MobileDuration" Type="Int32" />
+          <Property Name="MobileCharge" Type="Int32" />
+          <Property Name="LongDuration" Type="Int32" />
+          <Property Name="LongCharge" Type="Int32" />
+          <Property Name="LocalDuration" Type="Int32" />
+          <Property Name="LocalCharge" Type="Int32" />
+          <Property Name="ServiceDuration" Type="Int32" Nullable="false" />
+          <Property Name="ServiceCharge" Type="Int32" />
+          <Property Name="InterDuration" Type="Int32" />
+          <Property Name="InterCharge" Type="Int32" />
+          <Property Name="Month" Type="Byte" />
+          <Property Name="Year" Type="Byte" />
+          <Property Name="RealCharge" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DirectoryNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Level" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DepartmentReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TotalDuration" Type="Int32" />
+          <Property Name="TotalCharge" Type="Int32" />
+          <Property Name="MobileDuration" Type="Int32" />
+          <Property Name="MobileCharge" Type="Int32" />
+          <Property Name="LongDuration" Type="Int32" />
+          <Property Name="LongCharge" Type="Int32" />
+          <Property Name="LocalDuration" Type="Int32" />
+          <Property Name="LocalCharge" Type="Int32" />
+          <Property Name="ServiceDuration" Type="Int32" />
+          <Property Name="ServiceCharge" Type="Int32" />
+          <Property Name="InterDuration" Type="Int32" />
+          <Property Name="InterCharge" Type="Int32" />
+          <Property Name="Month" Type="Byte" />
+          <Property Name="Year" Type="Byte" />
+          <Property Name="RealCharge" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Operation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Method" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Boolean" />
+          <NavigationProperty Name="Roles" Relationship="Self.Principal" FromRole="Operation" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="PersonReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DirectoryNumber" Type="Int32" />
+          <Property Name="Person" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TotalDuration" Type="Int32" />
+          <Property Name="TotalCharge" Type="Int32" />
+          <Property Name="MobileDuration" Type="Int32" />
+          <Property Name="MobileCharge" Type="Int32" />
+          <Property Name="LongDuration" Type="Int32" />
+          <Property Name="LongCharge" Type="Int32" />
+          <Property Name="LocalDuration" Type="Int32" />
+          <Property Name="LocalCharge" Type="Int32" />
+          <Property Name="ServiceDuration" Type="Int32" />
+          <Property Name="ServiceCharge" Type="Int32" />
+          <Property Name="InterDuration" Type="Int32" />
+          <Property Name="InterCharge" Type="Int32" />
+          <Property Name="Month" Type="Byte" />
+          <Property Name="Year" Type="Byte" />
+          <Property Name="RealCharge" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Operations" Relationship="Self.Principal" FromRole="Role" ToRole="Operation" />
+          <NavigationProperty Name="Users" Relationship="Self.UserRole" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Roles" Relationship="Self.UserRole" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="UserToken">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiredTime" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="Principal">
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="*" />
+        </Association>
+        <Association Name="UserRole">
+          <End Role="Role" Type="Self.Role" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="IPPhoneEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CallPrices" EntityType="Self.CallPrice" />
+          <EntitySet Name="CallRecords" EntityType="Self.CallRecord" />
+          <EntitySet Name="ChargeLevels" EntityType="Self.ChargeLevel" />
+          <EntitySet Name="CompanyReports" EntityType="Self.CompanyReport" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="DepartmentReports" EntityType="Self.DepartmentReport" />
+          <EntitySet Name="Operations" EntityType="Self.Operation" />
+          <EntitySet Name="PersonReports" EntityType="Self.PersonReport" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTokens" EntityType="Self.UserToken" />
+          <AssociationSet Name="Principal" Association="Self.Principal">
+            <End Role="Operation" EntitySet="Operations" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole" Association="Self.UserRole">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IPPhoneModelStoreContainer" CdmEntityContainer="IPPhoneEntities">
+          <EntitySetMapping Name="CallPrices">
+            <EntityTypeMapping TypeName="IPPhoneModel.CallPrice">
+              <MappingFragment StoreEntitySet="CallPrice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="NumberHeader" ColumnName="NumberHeader" />
+                <ScalarProperty Name="Minute" ColumnName="Minute" />
+                <ScalarProperty Name="Block6" ColumnName="Block6" />
+                <ScalarProperty Name="Second" ColumnName="Second" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CallRecords">
+            <EntityTypeMapping TypeName="IPPhoneModel.CallRecord">
+              <MappingFragment StoreEntitySet="CallRecord">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CallingPartyNumber" ColumnName="CallingPartyNumber" />
+                <ScalarProperty Name="AuthCodeDescription" ColumnName="AuthCodeDescription" />
+                <ScalarProperty Name="FinalCalledPartyNumber" ColumnName="FinalCalledPartyNumber" />
+                <ScalarProperty Name="DateTimeConnect" ColumnName="DateTimeConnect" />
+                <ScalarProperty Name="DataTimeDisconnect" ColumnName="DataTimeDisconnect" />
+                <ScalarProperty Name="FinalCalledPartyNumberPartition" ColumnName="FinalCalledPartyNumberPartition" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="DirectoryNumber" ColumnName="DirectoryNumber" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChargeLevels">
+            <EntityTypeMapping TypeName="IPPhoneModel.ChargeLevel">
+              <MappingFragment StoreEntitySet="ChargeLevel">
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyReports">
+            <EntityTypeMapping TypeName="IPPhoneModel.CompanyReport">
+              <MappingFragment StoreEntitySet="CompanyReport">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="TotalDuration" ColumnName="TotalDuration" />
+                <ScalarProperty Name="TotalCharge" ColumnName="TotalCharge" />
+                <ScalarProperty Name="MobileDuration" ColumnName="MobileDuration" />
+                <ScalarProperty Name="MobileCharge" ColumnName="MobileCharge" />
+                <ScalarProperty Name="LongDuration" ColumnName="LongDuration" />
+                <ScalarProperty Name="LongCharge" ColumnName="LongCharge" />
+                <ScalarProperty Name="LocalDuration" ColumnName="LocalDuration" />
+                <ScalarProperty Name="LocalCharge" ColumnName="LocalCharge" />
+                <ScalarProperty Name="ServiceDuration" ColumnName="ServiceDuration" />
+                <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+                <ScalarProperty Name="InterDuration" ColumnName="InterDuration" />
+                <ScalarProperty Name="InterCharge" ColumnName="InterCharge" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="RealCharge" ColumnName="RealCharge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="IPPhoneModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DirectoryNumber" ColumnName="DirectoryNumber" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartmentReports">
+            <EntityTypeMapping TypeName="IPPhoneModel.DepartmentReport">
+              <MappingFragment StoreEntitySet="DepartmentReport">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="TotalDuration" ColumnName="TotalDuration" />
+                <ScalarProperty Name="TotalCharge" ColumnName="TotalCharge" />
+                <ScalarProperty Name="MobileDuration" ColumnName="MobileDuration" />
+                <ScalarProperty Name="MobileCharge" ColumnName="MobileCharge" />
+                <ScalarProperty Name="LongDuration" ColumnName="LongDuration" />
+                <ScalarProperty Name="LongCharge" ColumnName="LongCharge" />
+                <ScalarProperty Name="LocalDuration" ColumnName="LocalDuration" />
+                <ScalarProperty Name="LocalCharge" ColumnName="LocalCharge" />
+                <ScalarProperty Name="ServiceDuration" ColumnName="ServiceDuration" />
+                <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+                <ScalarProperty Name="InterDuration" ColumnName="InterDuration" />
+                <ScalarProperty Name="InterCharge" ColumnName="InterCharge" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="RealCharge" ColumnName="RealCharge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Operations">
+            <EntityTypeMapping TypeName="IPPhoneModel.Operation">
+              <MappingFragment StoreEntitySet="Operation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonReports">
+            <EntityTypeMapping TypeName="IPPhoneModel.PersonReport">
+              <MappingFragment StoreEntitySet="PersonReport">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DirectoryNumber" ColumnName="DirectoryNumber" />
+                <ScalarProperty Name="Person" ColumnName="Person" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="TotalDuration" ColumnName="TotalDuration" />
+                <ScalarProperty Name="TotalCharge" ColumnName="TotalCharge" />
+                <ScalarProperty Name="MobileDuration" ColumnName="MobileDuration" />
+                <ScalarProperty Name="MobileCharge" ColumnName="MobileCharge" />
+                <ScalarProperty Name="LongDuration" ColumnName="LongDuration" />
+                <ScalarProperty Name="LongCharge" ColumnName="LongCharge" />
+                <ScalarProperty Name="LocalDuration" ColumnName="LocalDuration" />
+                <ScalarProperty Name="LocalCharge" ColumnName="LocalCharge" />
+                <ScalarProperty Name="ServiceDuration" ColumnName="ServiceDuration" />
+                <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+                <ScalarProperty Name="InterDuration" ColumnName="InterDuration" />
+                <ScalarProperty Name="InterCharge" ColumnName="InterCharge" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="RealCharge" ColumnName="RealCharge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="IPPhoneModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IPPhoneModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IPPhoneModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTokens">
+            <EntityTypeMapping TypeName="IPPhoneModel.UserToken">
+              <MappingFragment StoreEntitySet="UserToken">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="ExpiredTime" ColumnName="ExpiredTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Principal" TypeName="IPPhoneModel.Principal" StoreEntitySet="Principal">
+            <EndProperty Name="Operation">
+              <ScalarProperty Name="Id" ColumnName="OperationId" />
+            </EndProperty>
+            <EndProperty Name="Role">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="UserRole" TypeName="IPPhoneModel.UserRole" StoreEntitySet="UserRole">
+            <EndProperty Name="Role">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

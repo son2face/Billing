@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IPPhoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CallPrice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumberHeader" Type="int" />
+    <Property Name="Minute" Type="int" />
+    <Property Name="Block6" Type="int" />
+    <Property Name="Second" Type="int" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Area" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="text" />
+  </EntityType>
+  <EntityType Name="CallRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CallingPartyNumber" Type="int" />
+    <Property Name="AuthCodeDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="FinalCalledPartyNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="DateTimeConnect" Type="int" />
+    <Property Name="DataTimeDisconnect" Type="int" />
+    <Property Name="FinalCalledPartyNumberPartition" Type="nvarchar(max)" />
+    <Property Name="Duration" Type="int" />
+    <Property Name="Charge" Type="int" />
+    <Property Name="Month" Type="int" />
+    <Property Name="Year" Type="int" />
+    <Property Name="DirectoryNumber" Type="int" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="250" />
+    <Property Name="Department" Type="nvarchar" MaxLength="250" />
+    <Property Name="Company" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ChargeLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Level" Type="tinyint" />
+    <Property Name="Charge" Type="int" />
+  </EntityType>
+  <EntityType Name="CompanyReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Company" Type="nvarchar" MaxLength="250" />
+    <Property Name="TotalDuration" Type="int" />
+    <Property Name="TotalCharge" Type="int" />
+    <Property Name="MobileDuration" Type="int" />
+    <Property Name="MobileCharge" Type="int" />
+    <Property Name="LongDuration" Type="int" />
+    <Property Name="LongCharge" Type="int" />
+    <Property Name="LocalDuration" Type="int" />
+    <Property Name="LocalCharge" Type="int" />
+    <Property Name="ServiceDuration" Type="int" Nullable="false" />
+    <Property Name="ServiceCharge" Type="int" />
+    <Property Name="InterDuration" Type="int" />
+    <Property Name="InterCharge" Type="int" />
+    <Property Name="Month" Type="tinyint" />
+    <Property Name="Year" Type="tinyint" />
+    <Property Name="RealCharge" Type="int" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DirectoryNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="250" />
+    <Property Name="Department" Type="nvarchar" MaxLength="250" />
+    <Property Name="Company" Type="nvarchar" MaxLength="250" />
+    <Property Name="Level" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="DepartmentReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="250" />
+    <Property Name="Company" Type="nvarchar" MaxLength="250" />
+    <Property Name="TotalDuration" Type="int" />
+    <Property Name="TotalCharge" Type="int" />
+    <Property Name="MobileDuration" Type="int" />
+    <Property Name="MobileCharge" Type="int" />
+    <Property Name="LongDuration" Type="int" />
+    <Property Name="LongCharge" Type="int" />
+    <Property Name="LocalDuration" Type="int" />
+    <Property Name="LocalCharge" Type="int" />
+    <Property Name="ServiceDuration" Type="int" />
+    <Property Name="ServiceCharge" Type="int" />
+    <Property Name="InterDuration" Type="int" />
+    <Property Name="InterCharge" Type="int" />
+    <Property Name="Month" Type="tinyint" />
+    <Property Name="Year" Type="tinyint" />
+    <Property Name="RealCharge" Type="int" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Method" Type="nvarchar(max)" />
+    <Property Name="Link" Type="nvarchar(max)" />
+    <Property Name="Type" Type="bit" />
+  </EntityType>
+  <EntityType Name="PersonReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DirectoryNumber" Type="int" />
+    <Property Name="Person" Type="nvarchar" MaxLength="250" />
+    <Property Name="Department" Type="nvarchar" MaxLength="250" />
+    <Property Name="Company" Type="nvarchar" MaxLength="250" />
+    <Property Name="TotalDuration" Type="int" />
+    <Property Name="TotalCharge" Type="int" />
+    <Property Name="MobileDuration" Type="int" />
+    <Property Name="MobileCharge" Type="int" />
+    <Property Name="LongDuration" Type="int" />
+    <Property Name="LongCharge" Type="int" />
+    <Property Name="LocalDuration" Type="int" />
+    <Property Name="LocalCharge" Type="int" />
+    <Property Name="ServiceDuration" Type="int" />
+    <Property Name="ServiceCharge" Type="int" />
+    <Property Name="InterDuration" Type="int" />
+    <Property Name="InterCharge" Type="int" />
+    <Property Name="Month" Type="tinyint" />
+    <Property Name="Year" Type="tinyint" />
+    <Property Name="RealCharge" Type="int" />
+  </EntityType>
+  <EntityType Name="Principal">
+    <Key>
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="OperationId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="OperationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Token" Type="nvarchar(max)" />
+    <Property Name="ExpiredTime" Type="date" />
+  </EntityType>
+  <Association Name="FK_Principal_Operation">
+    <End Role="Operation" Type="Self.Operation" Multiplicity="1" />
+    <End Role="Principal" Type="Self.Principal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Principal">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Principal_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Principal" Type="Self.Principal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Principal">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role1">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IPPhoneModelStoreContainer">
+    <EntitySet Name="CallPrice" EntityType="Self.CallPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CallRecord" EntityType="Self.CallRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChargeLevel" EntityType="Self.ChargeLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyReport" EntityType="Self.CompanyReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartmentReport" EntityType="Self.DepartmentReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operation" EntityType="Self.Operation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonReport" EntityType="Self.PersonReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Principal" EntityType="Self.Principal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserToken" EntityType="Self.UserToken" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Principal_Operation" Association="Self.FK_Principal_Operation">
+      <End Role="Operation" EntitySet="Operation" />
+      <End Role="Principal" EntitySet="Principal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Principal_Role" Association="Self.FK_Principal_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Principal" EntitySet="Principal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role1" Association="Self.FK_UserRole_Role1">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

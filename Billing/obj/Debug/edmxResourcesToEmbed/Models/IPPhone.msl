@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IPPhoneModelStoreContainer" CdmEntityContainer="IPPhoneEntities">
+    <EntitySetMapping Name="CallPrices">
+      <EntityTypeMapping TypeName="IPPhoneModel.CallPrice">
+        <MappingFragment StoreEntitySet="CallPrice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="NumberHeader" ColumnName="NumberHeader" />
+          <ScalarProperty Name="Minute" ColumnName="Minute" />
+          <ScalarProperty Name="Block6" ColumnName="Block6" />
+          <ScalarProperty Name="Second" ColumnName="Second" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CallRecords">
+      <EntityTypeMapping TypeName="IPPhoneModel.CallRecord">
+        <MappingFragment StoreEntitySet="CallRecord">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CallingPartyNumber" ColumnName="CallingPartyNumber" />
+          <ScalarProperty Name="AuthCodeDescription" ColumnName="AuthCodeDescription" />
+          <ScalarProperty Name="FinalCalledPartyNumber" ColumnName="FinalCalledPartyNumber" />
+          <ScalarProperty Name="DateTimeConnect" ColumnName="DateTimeConnect" />
+          <ScalarProperty Name="DataTimeDisconnect" ColumnName="DataTimeDisconnect" />
+          <ScalarProperty Name="FinalCalledPartyNumberPartition" ColumnName="FinalCalledPartyNumberPartition" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Charge" ColumnName="Charge" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="DirectoryNumber" ColumnName="DirectoryNumber" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargeLevels">
+      <EntityTypeMapping TypeName="IPPhoneModel.ChargeLevel">
+        <MappingFragment StoreEntitySet="ChargeLevel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Charge" ColumnName="Charge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyReports">
+      <EntityTypeMapping TypeName="IPPhoneModel.CompanyReport">
+        <MappingFragment StoreEntitySet="CompanyReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="TotalDuration" ColumnName="TotalDuration" />
+          <ScalarProperty Name="TotalCharge" ColumnName="TotalCharge" />
+          <ScalarProperty Name="MobileDuration" ColumnName="MobileDuration" />
+          <ScalarProperty Name="MobileCharge" ColumnName="MobileCharge" />
+          <ScalarProperty Name="LongDuration" ColumnName="LongDuration" />
+          <ScalarProperty Name="LongCharge" ColumnName="LongCharge" />
+          <ScalarProperty Name="LocalDuration" ColumnName="LocalDuration" />
+          <ScalarProperty Name="LocalCharge" ColumnName="LocalCharge" />
+          <ScalarProperty Name="ServiceDuration" ColumnName="ServiceDuration" />
+          <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+          <ScalarProperty Name="InterDuration" ColumnName="InterDuration" />
+          <ScalarProperty Name="InterCharge" ColumnName="InterCharge" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="RealCharge" ColumnName="RealCharge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="IPPhoneModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DirectoryNumber" ColumnName="DirectoryNumber" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentReports">
+      <EntityTypeMapping TypeName="IPPhoneModel.DepartmentReport">
+        <MappingFragment StoreEntitySet="DepartmentReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="TotalDuration" ColumnName="TotalDuration" />
+          <ScalarProperty Name="TotalCharge" ColumnName="TotalCharge" />
+          <ScalarProperty Name="MobileDuration" ColumnName="MobileDuration" />
+          <ScalarProperty Name="MobileCharge" ColumnName="MobileCharge" />
+          <ScalarProperty Name="LongDuration" ColumnName="LongDuration" />
+          <ScalarProperty Name="LongCharge" ColumnName="LongCharge" />
+          <ScalarProperty Name="LocalDuration" ColumnName="LocalDuration" />
+          <ScalarProperty Name="LocalCharge" ColumnName="LocalCharge" />
+          <ScalarProperty Name="ServiceDuration" ColumnName="ServiceDuration" />
+          <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+          <ScalarProperty Name="InterDuration" ColumnName="InterDuration" />
+          <ScalarProperty Name="InterCharge" ColumnName="InterCharge" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="RealCharge" ColumnName="RealCharge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operations">
+      <EntityTypeMapping TypeName="IPPhoneModel.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonReports">
+      <EntityTypeMapping TypeName="IPPhoneModel.PersonReport">
+        <MappingFragment StoreEntitySet="PersonReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DirectoryNumber" ColumnName="DirectoryNumber" />
+          <ScalarProperty Name="Person" ColumnName="Person" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="TotalDuration" ColumnName="TotalDuration" />
+          <ScalarProperty Name="TotalCharge" ColumnName="TotalCharge" />
+          <ScalarProperty Name="MobileDuration" ColumnName="MobileDuration" />
+          <ScalarProperty Name="MobileCharge" ColumnName="MobileCharge" />
+          <ScalarProperty Name="LongDuration" ColumnName="LongDuration" />
+          <ScalarProperty Name="LongCharge" ColumnName="LongCharge" />
+          <ScalarProperty Name="LocalDuration" ColumnName="LocalDuration" />
+          <ScalarProperty Name="LocalCharge" ColumnName="LocalCharge" />
+          <ScalarProperty Name="ServiceDuration" ColumnName="ServiceDuration" />
+          <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+          <ScalarProperty Name="InterDuration" ColumnName="InterDuration" />
+          <ScalarProperty Name="InterCharge" ColumnName="InterCharge" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="RealCharge" ColumnName="RealCharge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IPPhoneModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IPPhoneModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IPPhoneModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTokens">
+      <EntityTypeMapping TypeName="IPPhoneModel.UserToken">
+        <MappingFragment StoreEntitySet="UserToken">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="ExpiredTime" ColumnName="ExpiredTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Principal" TypeName="IPPhoneModel.Principal" StoreEntitySet="Principal">
+      <EndProperty Name="Operation">
+        <ScalarProperty Name="Id" ColumnName="OperationId" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserRole" TypeName="IPPhoneModel.UserRole" StoreEntitySet="UserRole">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
